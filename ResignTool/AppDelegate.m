@@ -25,14 +25,8 @@
     
 }
 
-- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)hasVisibleWindows {
-    for (NSWindow *window in sender.windows) {
-        if ([window isMemberOfClass:NSWindow.class]) {
-            [window setIsVisible:YES];
-            [window makeKeyAndOrderFront:self];
-        }
-    }
-    return YES;
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender; {
+    return true;
 }
 
 @end
