@@ -232,7 +232,8 @@
 #pragma mark - Certificate Methods
 - (void)getCertificates {
     [[IDFileHelper sharedInstance] getCertificatesSuccess:^(NSArray *certificateNames) {
-        self->certificatesArray = certificateNames;
+        // Remove duplicates
+        self->certificatesArray = [[NSSet setWithArray:certificateNames] allObjects];;
         [self.certificateComboBox reloadData];
     } error:^(NSString *errString) {
         [self addLog:errString withColor:[NSColor redColor]]; 

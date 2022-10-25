@@ -70,7 +70,7 @@ static IDFileHelper *istance;
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // 检查 KeyChain 中是否有证书，然后把证书保存到 self.certificatesArray
-        NSString *securityResult = [[NSString alloc] initWithData:[handle readDataToEndOfFile] encoding:NSASCIIStringEncoding];
+        NSString *securityResult = [[NSString alloc] initWithData:[handle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
         NSLog(@"%@", securityResult);
         if (securityResult == nil || securityResult.length < 1) return;
         NSArray *rawResult = [securityResult componentsSeparatedByString:@"\""];
