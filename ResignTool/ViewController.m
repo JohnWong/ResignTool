@@ -262,7 +262,7 @@
     
     if ([comboBox isEqual:self.provisioningComboBox]) {
         IDProvisioningProfile *profile = provisioningArray[index];
-        item = [NSString stringWithFormat:@"%@ (%@)", profile.name, profile.bundleIdentifier];
+        item = [NSString stringWithFormat:@"%@ (%@)", profile.name, profile.applicationIdentifier];
     } else if ([comboBox isEqual:self.certificateComboBox]) {
         item = certificatesArray[index];
     }
