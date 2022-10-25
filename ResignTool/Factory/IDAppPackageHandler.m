@@ -206,6 +206,8 @@
     if (logLocalBlock)
         logLocalBlock([NSString stringWithFormat:@"Compressing file to path: %@", zippedIpaPath]);
     
+    // 先清理，否则可能出现文件残留
+    [manager removeItemAtPath:zipDirPath error:nil];
     [manager createDirectoryAtPath:zipDirPath withIntermediateDirectories:TRUE attributes:nil error:nil];
     [[IDFileHelper sharedInstance] zip:self.workPath toPath:zippedIpaPath complete:^(BOOL result) {
         if (result) {
